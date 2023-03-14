@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { shortenUrlAsync } from './reducers/urlReducer';
 import {getShortenedUrl} from "./api/api";
 import Swal from 'sweetalert2'
+import "./css/app.scss";
+import doodle from './imgs/rastors/homepage_doodle.png';
 
 function App() {
     const dispatch = useDispatch();
@@ -43,25 +45,36 @@ function App() {
 
     return (
         <div>
-            <h1>Shorten URL App</h1>
-            <div>
-                <label htmlFor="inputUrl">URL:</label>
-                <input
-                    id="inputUrl"
-                    type="text"
-                    value={inputUrl}
-                    onChange={(e) => setInputUrl(e.target.value)}
-                />
-            </div>
-            <div>
-                <button onClick={handleShortenUrl}>Shorten URL</button>
-            </div>
-            {url && (
-                <div>
-                    <p>Short URL:</p>
-                    <a href={url.id}>{url.id}</a>
+
+            <div className={'maincontainer'}>
+                <div className={'cont_left'}>
+                    <span className={'top_span'}>
+                    Simplest url shortener
+                </span>
+                    <span className={'bottom_span'}>
+                    URL shortener converts long URLs into shorter ones for easier sharing. It's ideal for social media, email campaigns, and online marketing. Try on your own!
+                    </span>
+                    <label htmlFor="inputUrl">URL:</label>
+                    <input
+                        id="inputUrl"
+                        type="text"
+                        value={inputUrl}
+                        onChange={(e) => setInputUrl(e.target.value)}
+                    />
+
+                    {url && (
+                        <div>
+                            <p>Short URL:</p>
+                            <a href={url.id}>{url.id}</a>
+                        </div>
+                    )}
+                    <div>
+                        <button onClick={handleShortenUrl}>Shorten URL</button>
+                    </div>
                 </div>
-            )}
+                <img className={'imgright'} src={doodle} alt={''}/>
+            </div>
+
         </div>
     );
 }

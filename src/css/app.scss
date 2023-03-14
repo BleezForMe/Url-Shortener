@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+
+.maincontainer{
+  font-family: Poppins;
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  @media (max-width: 700px) {
+    height: 100vh;
+    margin-top:32px;
+  }
+}
+.top_span{
+  font-size: 64px;
+  font-weight: 700;
+  color:black;
+  display: block;
+  color: #1c499a;
+  margin:auto;
+  @media (max-width: 1625px) {
+    font-size: 48px;
+  }
+  @media (max-width: 1366px) {
+    font-size: 36px;
+  }
+}
+.bottom_span{
+  font-size: 18px;
+  font-weight: 400;
+  color:black;
+  display: block;
+  margin: 32px auto auto;
+  @media (max-width: 1625px) {
+    font-size: 16px;
+  }
+  @media (max-width: 1366px) {
+    font-size: 14px;
+  }
+
+}
+.yellow{
+  position: absolute;
+  z-index: -1;
+  transform: translate(-20px,30px);
+  @media (max-width: 1625px) {
+    width: 140px;
+    transform: translate(-10px,20px);
+  }
+}
+.cont_left{
+  width: 800px;
+  margin:128px;
+  @media (max-width: 1625px) {
+    width: 600px;
+  }
+  @media (max-width: 1366px) {
+    width: 400px;
+  }
+  @media (max-width: 1000px) {
+    width: 80%;
+    margin:0;
+    margin:auto;
+    margin-top:64px;
+    margin-bottom:64px;
+    margin-left:10%;
+  }
+}
+.imgright{
+  margin-left: 64px;
+  width: 600px;
+}
