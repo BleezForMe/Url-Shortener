@@ -17,6 +17,7 @@
     "redux": "^4.2.1",
     "redux-thunk": "^2.4.2",
     "shortid": "^2.2.16",
+    "sweetalert2": "^11.7.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

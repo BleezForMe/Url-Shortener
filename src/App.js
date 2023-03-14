@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { shortenUrlAsync, getShortenedUrlAsync } from './reducers/urlReducer';
+import { shortenUrlAsync } from './reducers/urlReducer';
 import {getShortenedUrl} from "./api/api";
+import Swal from 'sweetalert2'
 
 function App() {
     const dispatch = useDispatch();
@@ -9,7 +10,23 @@ function App() {
     const [inputUrl, setInputUrl] = useState('');
 
     const handleShortenUrl = () => {
-        dispatch(shortenUrlAsync(inputUrl));
+        const regex = /^(http(s):\/\/.)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/;
+        if(regex.test(inputUrl)){
+            dispatch(shortenUrlAsync(inputUrl));
+            Swal.fire({
+                title: 'Good job!',
+                text: 'Congratulations! Your link has been shortened.',
+                icon: 'success',
+                confirmButtonText: 'Close'
+            })
+        }else{
+            Swal.fire({
+                title: 'ERROR!',
+                text: 'Try again, did you provide a correct link?',
+                icon: 'error',
+                confirmButtonText: 'Close'
+            })
+        }
     };
 
     useEffect(() => {
@@ -20,7 +37,7 @@ function App() {
                 console.log(response.url)
                 window.location.replace(response.url);
 
-            });
+            })
         }
     }, [dispatch]);
 
