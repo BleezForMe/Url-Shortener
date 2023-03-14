@@ -5,6 +5,20 @@ import {getShortenedUrl} from "./api/api";
 import Swal from 'sweetalert2'
 import "./css/app.scss";
 import doodle from './imgs/rastors/homepage_doodle.png';
+import shape from './imgs/rastors/Vector.png';
+
+
+import { ReactComponent as Lines } from './imgs/vectors/lines.svg';
+import { ReactComponent as ShapeRightDown } from './imgs/vectors/rd.svg';
+
+function isValidUrl(url) {
+    try {
+        new URL(url);
+        return true;
+    } catch (error) {
+        return false;
+    }
+}
 
 function App() {
     const dispatch = useDispatch();
@@ -12,8 +26,7 @@ function App() {
     const [inputUrl, setInputUrl] = useState('');
 
     const handleShortenUrl = () => {
-        const regex = /^(http(s):\/\/.)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/;
-        if(regex.test(inputUrl)){
+        if(isValidUrl(inputUrl)){
             dispatch(shortenUrlAsync(inputUrl));
             Swal.fire({
                 title: 'Good job!',
@@ -45,32 +58,33 @@ function App() {
 
     return (
         <div>
-
+            <Lines className={'svg_lines'}/>
+            <ShapeRightDown className={'svg_rd'}/>
             <div className={'maincontainer'}>
+
                 <div className={'cont_left'}>
+                    <img className={'yellow'} src={shape} alt={''}/>
                     <span className={'top_span'}>
                     Simplest url shortener
                 </span>
                     <span className={'bottom_span'}>
                     URL shortener converts long URLs into shorter ones for easier sharing. It's ideal for social media, email campaigns, and online marketing. Try on your own!
                     </span>
-                    <label htmlFor="inputUrl">URL:</label>
                     <input
+                        className={'shortInput'}
                         id="inputUrl"
                         type="text"
+                        placeholder={'Your link'}
                         value={inputUrl}
                         onChange={(e) => setInputUrl(e.target.value)}
                     />
 
+                    <button className={'button_blue'} onClick={handleShortenUrl}>Shorten URL</button>
+
                     {url && (
-                        <div>
-                            <p>Short URL:</p>
-                            <a href={url.id}>{url.id}</a>
-                        </div>
+                        <span className={'urlspan'}>Your shortened url: <a className={'urllink'} href={url.id}>url.copedix.pl/{url.id}</a></span>
                     )}
-                    <div>
-                        <button onClick={handleShortenUrl}>Shorten URL</button>
-                    </div>
+
                 </div>
                 <img className={'imgright'} src={doodle} alt={''}/>
             </div>
