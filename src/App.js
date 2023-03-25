@@ -60,12 +60,9 @@ function App() {
                 <meta name="description" content="Simplest URL shortener" />
                 <meta property="og:title" content="Url Shortener" />
                 <meta property="og:description" content="Simplest URL shortener" />
-                <meta property="og:image" content="https://url.copedix.pl/og-image.jpg" />
                 <meta property="og:url" content="https://url.copedix.pl" />
                 <meta name="twitter:title" content="Url Shortener" />
                 <meta name="twitter:description" content="Simplest URL shortener" />
-                <meta name="twitter:image" content="https://url.copedix.pl/twitter-image.jpg" />
-                <meta name="twitter:card" content="summary_large_image" />
             </Helmet>
             <Lines className={'svg_lines'} />
             <ShapeRightDown className={'svg_rd'} />
