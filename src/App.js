@@ -8,6 +8,7 @@ import doodle from './imgs/rastors/homepage_doodle.png';
 import shape from './imgs/rastors/Vector.png';
 import { ReactComponent as Lines } from './imgs/vectors/lines.svg';
 import { ReactComponent as ShapeRightDown } from './imgs/vectors/rd.svg';
+import {Helmet} from "react-helmet";
 
 function isValidUrl(url) {
     try {
