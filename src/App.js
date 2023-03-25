@@ -55,6 +55,18 @@ function App() {
 
     return (
         <div>
+            <Helmet>
+                <title>Url Shortener</title>
+                <meta name="description" content="Simplest URL shortener" />
+                <meta property="og:title" content="Url Shortener" />
+                <meta property="og:description" content="Simplest URL shortener" />
+                <meta property="og:image" content="https://url.copedix.pl/og-image.jpg" />
+                <meta property="og:url" content="https://url.copedix.pl" />
+                <meta name="twitter:title" content="Url Shortener" />
+                <meta name="twitter:description" content="Simplest URL shortener" />
+                <meta name="twitter:image" content="https://url.copedix.pl/twitter-image.jpg" />
+                <meta name="twitter:card" content="summary_large_image" />
+            </Helmet>
             <Lines className={'svg_lines'} />
             <ShapeRightDown className={'svg_rd'} />
             <div className={'maincontainer'}>
@@ -62,8 +74,8 @@ function App() {
                     <img className={'yellow'} src={shape} alt={''} />
                     <span className={'top_span'}>Simplest url shortener</span>
                     <span className={'bottom_span'}>
-            URL shortener converts long URLs into shorter ones for easier sharing. It's ideal for social media, email campaigns, and online marketing. Try on your own!
-          </span>
+                        URL shortener converts long URLs into shorter ones for easier sharing. It's ideal for social media, email campaigns, and online marketing. Try on your own!
+                    </span>
                     <input
                         className={'shortInput'}
                         id='inputUrl'

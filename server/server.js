@@ -15,7 +15,7 @@ app.use((req, res, next) => {
 });
 
 // Endpoint to create a shortened URL
-app.post('/api/shorten', (req, res) => {
+app.post('/apis/shorten', (req, res) => {
     const { url } = req.body;
     if (!url) {
         return res.status(400).json({ error: 'URL cannot be empty' });
@@ -30,7 +30,7 @@ app.post('/api/shorten', (req, res) => {
 });
 
 // Endpoint to get the original URL
-app.get('/api/shortened/:id', (req, res) => {
+app.get('/apis/shortened/:id', (req, res) => {
     const { id } = req.params;
     const urls = readUrls();
     const urlObj = urls.find(u => u.id === id);
